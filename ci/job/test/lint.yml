@@ -1,0 +1,8 @@
+lint-job:
+  stage: test
+  script:
+    - npm run lint:ci
+  artifacts:
+    paths:
+      - config/eslint/eslint-report.json
+    expire_in: 1 week

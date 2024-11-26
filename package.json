@@ -1,0 +1,217 @@
+{
+  "name": "doors-ihm",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "upgrade": "npx npm-check-updates -u",
+    "start": "webpack serve --node-env=development --mode=development --config ./config/webpack/webpack.config.js",
+    "start:prod": "webpack serve --node-env=production --mode=development --config ./config/webpack/webpack.config.js",
+    "build": "webpack --node-env=production --mode=production --config ./config/webpack/webpack.config.js && npx react-inject-env set",
+    "build:dev": "webpack --node-env=development --mode=production --config ./config/webpack/webpack.config.js && npx react-inject-env set",
+    "build:analyze": "webpack --node-env=production --mode=production --analyze --config ./config/webpack/webpack.config.js && npx react-inject-env set",
+    "test": "jest -c config/jest/jest.config.js --setupFiles dotenv/config",
+    "test:file": "jest -c config/jest/jest.config.js --setupFiles dotenv/config --",
+    "test:ci": "jest -c config/jest/jest.config.js --setupFiles dotenv/config --watchAll=false --coverage --runInBand --silent --no-cache",
+    "test:coverage": "jest -c config/jest/jest.config.js --setupFiles dotenv/config --coverage",
+    "test:coverage:navigator": "npx open-cli coverage/lcov-report/index.html",
+    "lint": "eslint src/",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:ci": "npm run lint -- -f json -o config/eslint/eslint-report.json",
+    "sonar": "node sonar.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@emotion/react": "11.11.3",
+    "@emotion/styled": "11.11.0",
+    "@mui/icons-material": "5.15.10",
+    "@mui/lab": "5.0.0-alpha.165",
+    "@mui/material": "5.15.10",
+    "@reduxjs/toolkit": "2.2.1",
+    "antd": "^5.16.2",
+    "axios": "^1.7.7",
+    "bootstrap": "5.3.2",
+    "date-fns": "3.3.1",
+    "dotenv": "16.4.4",
+    "eslint-plugin-import": "2.29.1",
+    "flat": "^6.0.1",
+    "intl-messageformat": "10.5.11",
+    "jest-junit": "16.0.0",
+    "jest-sonar-reporter": "2.0.0",
+    "jest-styled-components": "7.2.0",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "oidc-client-ts": "3.0.1",
+    "prop-types": "15.8.1",
+    "react": "18.2.0",
+    "react-bootstrap": "2.10.1",
+    "react-datepicker": "^7.3.0",
+    "react-dom": "18.2.0",
+    "react-inject-env": "2.1.0",
+    "react-redux": "9.1.0",
+    "react-router-dom": "6.22.0",
+    "react-toastify": "10.0.4",
+    "redux-saga": "1.3.0",
+    "sonarqube-scanner": "^3.3.0",
+    "styled-components": "6.1.8",
+    "url-join": "5.0.0",
+    "usehooks-ts": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.23.9",
+    "@babel/preset-env": "7.23.9",
+    "@babel/preset-react": "7.23.3",
+    "@jest/globals": "^29.7.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.11",
+    "@testing-library/jest-dom": "6.4.2",
+    "@testing-library/react": "14.2.1",
+    "@testing-library/user-event": "14.5.2",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
+    "babel-jest": "29.7.0",
+    "babel-loader": "9.1.3",
+    "babel-plugin-jsx-remove-data-test-id": "3.0.0",
+    "babel-plugin-react-remove-properties": "0.3.0",
+    "babel-plugin-styled-components": "2.1.4",
+    "css-loader": "6.10.0",
+    "eslint": "8.56.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "12.0.0",
+    "html-webpack-plugin": "5.6.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
+    "mini-css-extract-plugin": "2.8.0",
+    "postcss": "8.4.35",
+    "postcss-loader": "8.1.0",
+    "prettier": "3.2.5",
+    "react-refresh": "0.14.0",
+    "redux-mock-store": "1.5.4",
+    "sass": "1.71.0",
+    "sass-loader": "14.1.0",
+    "style-loader": "3.3.4",
+    "terser-webpack-plugin": "5.3.10",
+    "ts-jest": "^29.1.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.94.0",
+    "webpack-bundle-analyzer": "4.10.1",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "4.15.1",
+    "webpack-merge": "5.10.0"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-reporter.xml",
+    "indent": 2
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors"
+    ],
+    "overrides": [
+      {
+        "env": {
+          "node": true
+        },
+        "files": [
+          ".eslintrc.{js,cjs}"
+        ],
+        "parserOptions": {
+          "sourceType": "script"
+        }
+      },
+      {
+        "env": {
+          "node": true
+        },
+        "files": [
+          "**/*.ts', '**/*.tsx"
+        ],
+        "plugins": [
+          "@typescript-eslint"
+        ],
+        "extends": [
+          "eslint:recommended",
+          "plugin:@typescript-eslint/eslint-recommended",
+          "plugin:@typescript-eslint/recommended"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+          "project": "./tsconfig.json",
+          "sourceType": "script"
+        }
+      }
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "simple-import-sort",
+      "react-hooks"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "array-callback-return": "off",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "react/prop-types": "off",
+      "camelcase": "off",
+      "spaced-comment": "off",
+      "no-duplicate-imports": "error",
+      "object-shorthand": "off",
+      "import/no-unresolved": "error"
+    },
+    "globals": {
+      "process": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      },
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": [
+            "node_modules",
+            "src/"
+          ],
+          "extensions": [
+            ".js",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
+    }
+  },
+  "eslintIgnore": [
+    "build/",
+    "node_modules/",
+    "coverage"
+  ]
+}

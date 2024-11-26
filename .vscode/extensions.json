@@ -1,0 +1,5 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint", "formulahendry.auto-rename-tag", "Orta.vscode-jest", "esbenp.prettier-vscode"
+	]
+}

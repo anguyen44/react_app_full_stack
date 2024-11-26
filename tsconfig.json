@@ -1,0 +1,28 @@
+{
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
+  "compilerOptions": {
+    "target": "ES2021",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "shared/*": ["./src/shared/*"],
+      "icons": ["./src/icons/"],
+      "fonts/*": ["./src/fonts/*"],
+      "images/*": ["./src/images/*"],
+      "styles/*": ["./src/styles/*"],
+      "test/*": ["./src/test/*"],
+      "views/*": ["./src/views/*"],
+      "env": ["src/env.js"]
+    },
+    "types": ["@testing-library/jest-dom"]
+  },
+  "files": ["src/lib/index.d.ts"],
+  "compileOnSave": true
+}

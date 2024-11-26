@@ -1,0 +1,8 @@
+version-job:
+  stage: publish
+  script:
+    - /bin/sh ./ci/script/updateVersion.sh
+  artifacts:
+    expire_in: 1 day
+    reports:
+      dotenv: build.env

@@ -1,0 +1,24 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH == "release" || $CI_PIPELINE_SOURCE == "web"
+      when: always
+
+include:
+  - local: ci/job/test/lint.yml
+    rules:
+      - if: $GOFAST == 'true'
+        when: never
+      - when: always
+  - local: ci/job/test/coverage.yml
+    rules:
+      - if: $GOFAST == 'true'
+        when: never
+      - when: always
+  - local: ci/job/test/sonar.yml
+    rules:
+      - if: $GOFAST == 'true'
+        when: never
+      - when: always
+  - local: ci/job/build/build.yml
+  - local: ci/job/publish/version.yml
+  - local: ci/job/publish/publish.yml

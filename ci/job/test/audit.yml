@@ -1,0 +1,4 @@
+audit-job:
+  stage: test
+  script:
+    - npm audit

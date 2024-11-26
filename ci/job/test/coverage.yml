@@ -1,0 +1,9 @@
+coverage-job:
+  stage: test
+  script:
+    - npm run test:ci
+  artifacts:
+    paths:
+      - coverage
+    reports:
+      junit: coverage/report-jest-unit.xml

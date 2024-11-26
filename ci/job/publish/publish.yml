@@ -1,0 +1,30 @@
+publish-job:
+  stage: publish
+  before_script: []
+  needs:
+    - build-job
+    - version-job
+
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_REF_NAME !~ /^release/ || $TO_SNAPSHOTS == 'true'
+      variables:
+        appendTimestamp: "true"
+        PUBLISH_SCRIPT: "./ci/script/publish.sh -t doors-ihm-$VERSION -a $appendTimestamp -p d0r-generic-stages-local/doors-ihm/$VERSION-SNAPSHOTS"
+      when: manual
+    - if: $CI_COMMIT_BRANCH == "release" || $CI_COMMIT_REF_NAME ==  "release"
+      variables:
+        appendTimestamp: "false"
+        PUBLISH_SCRIPT: "./ci/script/publish.sh -t doors-ihm-$VERSION -a $appendTimestamp -p d0r-generic-releases-local/doors-$VERSION/doors-ihm"
+      when: manual
+    - if: $CI_COMMIT_BRANCH == "release_candidate" || $CI_COMMIT_REF_NAME ==  "release_candidate"
+      variables:
+        appendTimestamp: "false"
+        PUBLISH_SCRIPT: "./ci/script/publish.sh -t doors-ihm-$VERSION-RC -a $appendTimestamp -p d0r-generic-releases-local/doors-$VERSION-RC/doors-ihm"
+      when: manual
+    - when: never
+
+  script:
+    - echo "Start running publish.sh file"
+    - /bin/sh $PUBLISH_SCRIPT
+    - echo "End running publish.sh file"
+  when: manual

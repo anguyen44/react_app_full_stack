@@ -1,0 +1,85 @@
+v1.0(old):
+
+- [CAC-626] - feature: Création de page de réinitialisation de mot de passe
+
+v2.0(old):
+
+- [CAC-636] - feature: Ajout de redux au projet
+
+v3.0(old):
+
+- [CAC-678] - feature: Lecture des informations de l'utilisateur depuis midpoint
+- [CAC-781] - fix: Refonte du menu
+
+v4.0(old):
+
+- [CAC-827] - feature: Ajout de la bibliothèque Eslint au projet
+- [CAC-828] - feature: Mise en place d'une pipeline (ESlint) dans la CI/CD
+- [DOR-252] - refactor: add global env variables for multi-binaries
+- [DOR-251] - refactor: Marqueur selenium
+- [DOR-193] - feature: Redirection vers lemonLDAP pour les changements de mot de passe
+- [DOR-43] - feature: Validation des demandes en cours de traitement
+- [DOR-266] - refactor: Remplacer la lib react-icons
+- [DOR-247] - refactor: Récupération l'infos d'un rôle qui manque (responsable de role et de portfolio, date de dernière modofication)
+- [DOR-415] - feature: Ajout des mentions légales
+
+v0.1:
+
+- [DOR-81] - feature: Gestion d'une demande d'ajout d'utilisateur dans une équipes
+- [DOR-121] - feature: Gestion d'une demande d'ajout de permissions à un rôle
+- [DOR-179] - feature: Gestion d'une demande d'ajout d'un rôle à une équipe
+
+v0.2:
+
+- [DOR-422] - feature: Possibilité de créer des sous-équipes
+- [DOR-445] - feature: Possibilité d'ajouter tout NNI à une sous-équipe
+- [DOR-384] - feature: Affiche la typologie des demandes
+
+v0.3:
+
+- [DOR-383] - feature: Ajout d'un onglet suppléants dont la modification n'est possible que par le gestionnaire d'équipe
+- [DOR-506] - feature: Possibilité de supprimer une sous équipe
+
+v0.4
+
+- [DOR-468] - feature: Délégations du gestionnaire d'équipe : création de demande par sélection de NNI
+- [DOR-472] - feature: Délégations du gestionnaire d'équipe : suppression
+- [DOR-718] - fix: Création sous équipe possible même si les champs obligatoires ne sont pas complétés
+
+v0.5
+
+- [DOR-704] - fix: Nom de colonne erroné dans la page des Roles et récupération des portfolios
+- [DOR-399] - feature: Création dynamique de permissions : génération en fonction de filtres choisi par l'utilisateur
+- [DOR-764] - refactor: [IHM] Désactiver les champs (Zone, Environnement) dans le cadre du NULL (dans la page de création des permissions)
+- [DOR-386] - feature: migration du projet DOORS-IHM vers Placide
+- [DOR-712] [MCO] Migration dépôt RepositOI ZHB vers ZCA
+
+v1.0
+
+- [DOR-386] - Gestion de l'affichage des informations d'un portfolio et initialisation de TypeScript
+- [DOR-794] - Ajout de timestamps aux binaires des snapshots générés
+- [DOR-500] - Gestion des suppléants au sein de portfolios
+- [DOR-385] - Page des habilitations (équipes, rôles et portfolios) de l'utilisateur connecté
+- [DOR-855] - Prise en compte des demandes éronées lors de l'affichage
+- [DOR-476] - filtrage des équipes affichées
+- [DOR-757] - Gestion du nouveau template de permissions et ajout du sous-périmètre
+- [DOR-351] - Mise à jour de la CI
+
+v1.1
+
+- [DOR-627] - Anomalie: impossible de modifier les informations d'une sous-équipe/d'un rôle
+- [DOR-858] - Modification dans une équipe non possible sans être gestionnaire/suppléant de l'équipe
+- [DOR-847] - Gestion du mode d'édition permanent dans la page de gestion des rôles
+- [DOR-637] - Empêcher la suppression d'un rôle d'une équipe s'il est habilitant
+- [DOR-865] - refactor: Réagencement du tableau des demandes
+- [DOR-437] - feature: page des demandes terminées
+
+v.1.2.
+
+- [DOR-925] - feature: Alerter lors de la formulation d'une demande s'il n'y a pas de valideur
+- [DOR-475] - feature: Aide à la sélection/ajout de rôles à une sous-équipe
+- [DOR-993] - feature: Aide à la sélection/ajout de membres à une sous-équipe
+- [Hors-Jira] - refactor: Conversion du "status" en boolean "isActive" dans les "models" pour les utilisateurs, les équipes, les portfolios, les rôles et les permissions
+- [Hors-Jira] - refactor: uniformisation des urls pour n'utiliser uniquement des tirets (-)
+- [DOR-1002] - Anomalie: Création d'une sous équipe impossible si caractère spécial dans le nom
+- [DOR-758] - feature: Gestion des permissions sudo avec leurs modèles de carte et leurs comptes locaux
